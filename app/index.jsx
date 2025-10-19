@@ -1,32 +1,57 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { IconChat, IconShare } from "../components/icons";
 
 export default function Index() {
+  const petInfo = [
+    "• 2 anos",
+    "• Macho",
+    "• Porte pequeno",
+    "• Calmo e educado",
+    "• Se dá bem com outros cachorros",
+    "• Gosta de brincar e passear",
+    "• Gosta de crianças mais velhas mas se assusta com bebês",
+  ];
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.container}
-      >
+    <ScrollView style={styles.scrollView}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.Wrapper}>
-          <Image
-            source={require("../assets/ImagensAdopet/Imagem - Zelda.png")}
-          />
-          <Text style={styles.Name}>Zelda</Text>
-          <Text style={styles.Text}>
-            2 anos {"\n"}
-            Macho {"\n"}
-            Porte pequeno {"\n"}
-            Calmo e educado {"\n"}
-            Se dá bem com outros cachorros {"\n"}
-            Gosta de brincar e passear {"\n"}
-            Gosta de crianças mais velhas mas se assusta com bebês
-          </Text>
+          <View style={styles.Imagens}>
+            <Image
+              source={require("../assets/ImagensAdopet/Imagem Dunga.png")}
+            />
+          </View>
+          <View style={styles.PetInfo}>
+            <Text style={styles.Name}>
+              Zelda
+            </Text>
+            <View style={styles.listContainer}>
+              {petInfo.map((item, index) => (
+                <Text key={index} style={styles.listItem}>
+                  {" "}
+                  {item}
+                </Text>
+              ))}
+            </View>
+          </View>
+          <View style={styles.Localizacao}>
           <Text style={styles.Text}>Rio de Janeiro (RJ)</Text>
-          <Text style={styles.Text}>
-            Falar com o responsável
-            <Text> Compartilhar</Text>
-          </Text>
+          <View style={styles.Contatos}>
+            <Pressable style={styles.ButtonContatos}>
+              <IconChat />
+                <Text style={styles.Text}>
+                  Falar com o responsável
+                </Text>
+            </Pressable>
+            <Pressable style={styles.ButtonContatos}>
+              <IconShare />
+                <Text style={styles.Text}>
+               Compartilhar
+                </Text>
+            </Pressable>
+          </View>
+          </View>
           <Text style={styles.Text}>
             Dunga é encantador, conquista a todos com sua serenidade. Tem pelo
             macio e olhos expressivos que revelam a doçura de sua personalidade.
@@ -35,18 +60,26 @@ export default function Index() {
             atmosfera alegre para qualquer lar que tenha a sorte de tê-lo como
             parte da família!
           </Text>
-          <Image source={require("../assets/ImagensAdopet/Imagem Dunga.png")} />
-          <Image source={require("../assets/ImagensAdopet/Imagenm Lua.png")} />
+          <View style={styles.Imagens}>
+            <Image
+              style={styles.Imagens}
+              source={require("../assets/ImagensAdopet/Dunga1.png")}
+            />
+            <Image
+              style={styles.Imagens}
+              source={require("../assets/ImagensAdopet/Dunga2.png")}
+            />
+          </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    backgroundColor: "transparent",
+    backgroundColor: "#fff",
   },
   container: {
     alignItems: "center",
@@ -54,17 +87,49 @@ const styles = StyleSheet.create({
   Wrapper: {
     backgroundColor: "#F6F6F6",
     borderRadius: 10,
-    gap: 20,
-    alignItems: "center",
+    gap: 40,
+    alignItems: "left",
     width: "80%",
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+  },
+  PetInfo: {
+    gap:5,
   },
   Name: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#3772FF",
+    alignItems: "left",
+  },
+  listContainer: {
+    width: "100%",
+  },
+  listItem: {
+    fontSize: 16,
+    marginVertical: 2,
+    color: "#666",
+  },
+  Localizacao:{
+    gap:5,
+  },
+  Contatos:{
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  ButtonContatos:{
+    flexDirection: "row",
+    gap:15,
+    justifyContent: "center",
+    alignItems: "center",
   },
   Text: {
     fontSize: 14,
     color: "#737380",
+  },
+  Imagens: {
+    alignItems: "center",
+    width: "100%",
+    gap: 10,
   },
 });
