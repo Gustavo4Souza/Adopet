@@ -1,8 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { Tabs } from 'expo-router';
 import { Drawer } from "expo-router/drawer";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 
-function Header() {
+function Header({navigation}) {
   return (
     <View style={styles.Container}>
       <View style={styles.Header}>
@@ -23,17 +25,31 @@ function Header() {
         </View>
       </View>
     </View>
-  );
+  ); 
 }
 
-export default function Layout() {
+export default function DrawerLayout() {
   return (
     <Drawer
       screenOptions={{
-        headerShown: true,
         header: ({ navigation }) => <Header navigation={navigation} />,
       }}
     ></Drawer>
+  );
+}
+
+export function TabsLayout() {
+  return (
+    <Tabs>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <MaterialIcons size={28} name="house.fill" color={color} />,
+        }}
+      />
+      
+      </Tabs>
   );
 }
 

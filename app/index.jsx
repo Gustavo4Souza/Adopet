@@ -1,4 +1,11 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { IconChat, IconShare } from "../components/icons";
 
@@ -23,9 +30,7 @@ export default function Index() {
             />
           </View>
           <View style={styles.PetInfo}>
-            <Text style={styles.Name}>
-              Zelda
-            </Text>
+            <Text style={styles.Name}>Zelda</Text>
             <View style={styles.listContainer}>
               {petInfo.map((item, index) => (
                 <Text key={index} style={styles.listItem}>
@@ -36,21 +41,17 @@ export default function Index() {
             </View>
           </View>
           <View style={styles.Localizacao}>
-          <Text style={styles.Text}>Rio de Janeiro (RJ)</Text>
-          <View style={styles.Contatos}>
-            <Pressable style={styles.ButtonContatos}>
-              <IconChat />
-                <Text style={styles.Text}>
-                  Falar com o responsável
-                </Text>
-            </Pressable>
-            <Pressable style={styles.ButtonContatos}>
-              <IconShare />
-                <Text style={styles.Text}>
-               Compartilhar
-                </Text>
-            </Pressable>
-          </View>
+            <Text style={styles.Text}>Rio de Janeiro (RJ)</Text>
+            <View style={styles.Contatos}>
+              <Pressable style={styles.ButtonContatos}>
+                <IconChat />
+                <Text style={styles.Text}>Falar com o responsável</Text>
+              </Pressable>
+              <Pressable style={styles.ButtonContatos}>
+                <IconShare />
+                <Text style={styles.Text}>Compartilhar</Text>
+              </Pressable>
+            </View>
           </View>
           <Text style={styles.Text}>
             Dunga é encantador, conquista a todos com sua serenidade. Tem pelo
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
   },
   PetInfo: {
-    gap:5,
+    gap: 5,
   },
   Name: {
     fontSize: 20,
@@ -110,16 +111,16 @@ const styles = StyleSheet.create({
     marginVertical: 2,
     color: "#666",
   },
-  Localizacao:{
-    gap:5,
+  Localizacao: {
+    gap: 5,
   },
-  Contatos:{
+  Contatos: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  ButtonContatos:{
+  ButtonContatos: {
     flexDirection: "row",
-    gap:15,
+    gap: 15,
     justifyContent: "center",
     alignItems: "center",
   },
