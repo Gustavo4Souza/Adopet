@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { Tabs } from 'expo-router';
+import { router } from 'expo-router';
 import { Drawer } from "expo-router/drawer";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 
@@ -17,39 +16,41 @@ function Header({navigation}) {
         >
           <Ionicons name="menu" size={24} color="white" />
         </Pressable>
-        <View style={styles.profileContainer}>
+        <Pressable style={styles.profileContainer} 
+            onPress={() => router.push('/(tabs)/index')}>
           <Image
             source={require("../assets/ImagensAdopet/Imagem Dunga.png")}
             style={styles.profileImage}
           />
-        </View>
+        </Pressable>
       </View>
     </View>
   ); 
 }
 
-export default function DrawerLayout() {
+export default function RootLayout() {
   return (
     <Drawer
       screenOptions={{
         header: ({ navigation }) => <Header navigation={navigation} />,
+        drawerActiveTintColor: '#36D6AD',
+        drawerInactiveTintColor: '#666',
+        drawerStyle: {
+          backgroundColor: '#F6F6F6',
+        },
       }}
-    ></Drawer>
-  );
-}
-
-export function TabsLayout() {
-  return (
-    <Tabs>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <MaterialIcons size={28} name="house.fill" color={color} />,
-        }}
+    >
+      <Drawer.Screen 
+        name="(tabs)" 
+        options={{ 
+          title: "Página Principal",
+          drawerLabel: "Home",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }} 
       />
-      
-      </Tabs>
+    </Drawer>
   );
 }
 

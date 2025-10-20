@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { IconChat, IconShare } from "../components/icons";
+import { IconChat, IconShare } from "../../components/icons";
 
 export default function Index() {
   const petInfo = [
@@ -26,7 +26,7 @@ export default function Index() {
         <View style={styles.Wrapper}>
           <View style={styles.Imagens}>
             <Image
-              source={require("../assets/ImagensAdopet/Imagem Dunga.png")}
+              source={require("../../assets/ImagensAdopet/Imagem Dunga.png")}
             />
           </View>
           <View style={styles.PetInfo}>
@@ -64,13 +64,18 @@ export default function Index() {
           <View style={styles.Imagens}>
             <Image
               style={styles.Imagens}
-              source={require("../assets/ImagensAdopet/Dunga1.png")}
+              source={require("../../assets/ImagensAdopet/Dunga1.png")}
             />
             <Image
               style={styles.Imagens}
-              source={require("../assets/ImagensAdopet/Dunga2.png")}
+              source={require("../../assets/ImagensAdopet/Dunga2.png")}
             />
           </View>
+        </View>
+        <View style={styles.Footer}>
+          <Text style={styles.TextFooter}>
+            2023 - Desenvolvido por Alura. Projeto fictício sem fins {'\n'}comerciais.
+          </Text>
         </View>
       </SafeAreaView>
     </ScrollView>
@@ -84,6 +89,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
+    gap: 40,
   },
   Wrapper: {
     backgroundColor: "#F6F6F6",
@@ -132,5 +138,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     gap: 10,
+  },
+  Footer: {
+    width: "100%",
+    backgroundColor: "#36D6AD",
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    alignItems: "center",
+  },
+  TextFooter: {
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 12,
   },
 });
