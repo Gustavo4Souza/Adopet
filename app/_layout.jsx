@@ -65,15 +65,21 @@ export default function RootLayout() {
         },
       }}
     >
-      <Drawer.Screen 
-        name="(tabs)" 
-        options={{ 
-          title: "Página Principal",
-          drawerLabel: "Home",
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
-          ),
-        }} 
+<Drawer.Screen 
+  name="(tabs)" 
+  options={{ 
+    title: "Página Principal",
+    drawerLabel: "Home",
+    drawerIcon: ({ color, size }) => (
+      <Ionicons name="home" size={size} color={color} />
+    ),
+  }}
+  listeners={{
+    drawerItemPress: (e) => {
+      e.preventDefault();
+      router.push('/');
+    },
+  }}
       />
     </Drawer>
   );
