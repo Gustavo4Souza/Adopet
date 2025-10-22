@@ -8,7 +8,7 @@ Detalhes
 
 # Integrantes
 
-Higor Gabriel Pereira Mazucato
-Luis Gustavo
-Carolina Quintana
-Matheus Henrique
+- Higor Gabriel Pereira Mazucato
+- Luis Gustavo 
+- Carolina Quintana
+- Matheus Henrique
